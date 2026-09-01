@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>St Bride's English Bows</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #0a0a0a;
+    --paper: #ffffff;
+    --surface: #f6f6f4;
+    --line: #d8d8d4;
+    --dim: #6a6a66;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html, body{ max-width: 100%; overflow-x: hidden; }
+
+  body{
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: inherit; }
+
+  .serif{ font-family: 'Source Serif 4', serif; }
+
+  .wrap{
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  hr.rule{
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 0;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding: 64px 0 56px;
+    text-align: center;
+  }
+  .hero .bow-mark{
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto 28px;
+    display: block;
+  }
+  .hero .mark{
+    font-family: 'Source Serif 4', serif;
+    font-size: 2.6rem;
+    font-weight: 500;
+    letter-spacing: 0.005em;
+  }
+  .hero .mark sup{
+    font-size: 0.5em;
+    top: -1em;
+  }
+  .hero .strapline{
+    margin-top: 14px;
+    font-size: 0.95rem;
+    color: var(--dim);
+    max-width: 34ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero .estd{
+    margin-top: 22px;
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 0.82rem;
+    color: var(--dim);
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about{
+    padding: 56px 0 64px;
+  }
+  .about p{
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.12rem;
+    line-height: 1.7;
+    max-width: 56ch;
+    margin: 0 auto;
+    text-align: justify;
+    text-align-last: center;
+    color: #262624;
+  }
+  .about p + p{ margin-top: 20px; }
+
+  /* ---------- LISTINGS ---------- */
+  .listings{
+    padding: 8px 0 72px;
+  }
+  .listings-head{
+    display:flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+    padding-bottom: 28px;
+  }
+  .listings-head h2{
+    font-family: 'Source Serif 4', serif;
+    font-weight: 500;
+    font-size: 1.3rem;
+  }
+  .listings-head span{
+    font-size: 0.8rem;
+    color: var(--dim);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .listing{
+    border-top: 1px solid var(--line);
+    padding: 40px 0;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 32px;
+  }
+  .listing:last-child{ border-bottom: 1px solid var(--line); }
+
+  @media (max-width: 620px){
+    .listing{ grid-template-columns: 1fr; gap: 20px; }
+  }
+
+  .lot-no{
+    font-size: 0.78rem;
+    color: var(--dim);
+    margin-bottom: 10px;
+  }
+
+  .photo-slot{
+    aspect-ratio: 4/5;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding: 16px;
+  }
+  .photo-slot .label{
+    font-size: 0.72rem;
+    color: var(--dim);
+  }
+  .photo-slot img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+  }
+
+  .info-col h3{
+    font-family: 'Source Serif 4', serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+  }
+  .attribution{
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 0.92rem;
+    color: var(--dim);
+    margin-top: 3px;
+  }
+  .price{
+    font-size: 0.98rem;
+    margin-top: 12px;
+  }
+  .price.unavailable{
+    color: var(--dim);
+    font-size: 0.86rem;
+    letter-spacing: 0.02em;
+  }
+  .desc{
+    font-size: 0.9rem;
+    color: #3a3a37;
+    margin-top: 12px;
+    max-width: 46ch;
+  }
+
+  .specs{
+    list-style: none;
+    margin-top: 18px;
+    border-top: 1px solid var(--line);
+    max-width: 360px;
+  }
+  .specs li{
+    display:flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.82rem;
+  }
+  .specs li span:first-child{ color: var(--dim); }
+  .specs li span:last-child{ font-weight: 500; text-align: right; }
+
+  .cta{
+    margin-top: 20px;
+    display: inline-flex;
+    align-items:center;
+    justify-content:center;
+    background: var(--ink);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.86rem;
+    padding: 11px 20px;
+    transition: opacity 0.15s ease;
+  }
+  .cta:hover{ opacity: 0.8; }
+  .cta:focus-visible{
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact{
+    padding: 64px 0 96px;
+    text-align: center;
+  }
+  .contact h2{
+    font-family: 'Source Serif 4', serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+  }
+  .contact p{
+    margin-top: 12px;
+    color: var(--dim);
+    font-size: 0.95rem;
+    max-width: 40ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .contact .email{
+    display: inline-block;
+    margin-top: 24px;
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.15rem;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 2px;
+  }
+  .contact .note{
+    margin-top: 28px;
+    font-size: 0.78rem;
+    color: var(--dim);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top: 1px solid var(--line);
+    padding: 22px 0 40px;
+  }
+  footer .wrap{
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 0.76rem;
+    color: var(--dim);
+  }
+  footer a{ text-decoration: underline; }
+
+  @media (prefers-reduced-motion: reduce){
+    .cta{ transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="wrap">
+    <img class="bow-mark" src="violin_bow.png" alt="Line drawing of a violin bow">
+    <div class="mark">St Bride's</div>
+    <p class="strapline">Specialists in English bows, traders in all fine string bows. Appraisal services available on request.</p>
+    <p class="estd">London</p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="about">
+  <div class="wrap">
+    <p>St Bride's was established in 2026 out of a desire to foreground the best of English bow making at an accessible entry point. We take our name from St Bride's Church on Fleet Street in London, the resting place of Edward Dodd (1705-1810), bowmaker and father of the legendary John Dodd (1752-1839). Despite largely producing unbranded (and therefore unattributable) bows, Edward Dodd is credited as doing a great deal to improve the English bow, laying the groundwork for his son, 'the English Torte'.</p>
+    <p>Every bow that passes through our hands is assessed for maker, condition and playing quality before being offered for sale. We work, above all else, with players, and we are always enjoy talking through a bow, its individual quality and history before you come to a decision.</p>
+  </div>
+</section>
+
+<section class="listings">
+  <div class="wrap">
+    <div class="listings-head">
+      <h2>Spotlighted listings</h2>
+      <span>Please get in touch for more options</span>
+    </div>
+
+    <!-- LOT 01 -->
+    <article class="listing">
+      <div>
+        <div class="lot-no">Lot 01</div>
+        <div class="photo-slot">
+          <span class="label">No longer available</span>
+          <!-- Replace with: <img src="your-photo.jpg" alt="Bow name"> -->
+        </div>
+      </div>
+      <div class="info-col">
+        <h3>Violin bow</h3>
+        <div class="attribution">French school, c.1900</div>
+        <div class="price unavailable">No longer available</div>
+        <p class="desc">A well-balanced round stick with a lively, responsive feel. Octagonal head, ebony frog with a plain Parisian eye. Recently rehaired and in excellent playing order.</p>
+        <ul class="specs">
+          <li><span>Wood</span><span>Pernambuco</span></li>
+          <li><span>Weight</span><span>60g</span></li>
+          <li><span>Mounts</span><span>Silver</span></li>
+          <li><span>Condition</span><span>Excellent, no repairs</span></li>
+          <li><span>Case</span><span>Included</span></li>
+        </ul>
+        <a class="cta" href="mailto:reubenbance@gmail.com?subject=Enquiry — Lot 01, Violin bow">
+          Enquire about this bow
+        </a>
+      </div>
+    </article>
+
+    <!-- LOT 02 -->
+    <article class="listing">
+      <div>
+        <div class="lot-no">Lot 02</div>
+        <div class="photo-slot">
+          <span class="label">No longer available</span>
+        </div>
+      </div>
+      <div class="info-col">
+        <h3>Viola bow</h3>
+        <div class="attribution">English workshop, c.1930</div>
+        <div class="price unavailable">No longer available</div>
+        <p class="desc">A substantial, well-camberd stick suited to a darker, broader tone. Round head, tortoiseshell-effect frog. One small stick repair, expertly done and fully sound.</p>
+        <ul class="specs">
+          <li><span>Wood</span><span>Pernambuco</span></li>
+          <li><span>Weight</span><span>68g</span></li>
+          <li><span>Mounts</span><span>Nickel</span></li>
+          <li><span>Condition</span><span>Very good, one stick repair</span></li>
+          <li><span>Case</span><span>Included</span></li>
+        </ul>
+        <a class="cta" href="mailto:reubenbance@gmail.com?subject=Enquiry — Lot 02, Viola bow">
+          Enquire about this bow
+        </a>
+      </div>
+    </article>
+
+    <!-- LOT 03 -->
+    <article class="listing">
+      <div>
+        <div class="lot-no">Lot 03</div>
+        <div class="photo-slot">
+          <span class="label">No longer available</span>
+        </div>
+      </div>
+      <div class="info-col">
+        <h3>Cello bow</h3>
+        <div class="attribution">German school, c.1910</div>
+        <div class="price unavailable">No longer available</div>
+        <p class="desc">A strong, direct bow with plenty of power in the lower half. Octagonal stick, ebony frog with a mother-of-pearl slide. Freshly rehaired.</p>
+        <ul class="specs">
+          <li><span>Wood</span><span>Pernambuco</span></li>
+          <li><span>Weight</span><span>81g</span></li>
+          <li><span>Mounts</span><span>Nickel</span></li>
+          <li><span>Condition</span><span>Good, minor wear to lapping</span></li>
+          <li><span>Case</span><span>Not included</span></li>
+        </ul>
+        <a class="cta" href="mailto:reubenbance@gmail.com?subject=Enquiry — Lot 03, Cello bow">
+          Enquire about this bow
+        </a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="contact">
+  <div class="wrap">
+    <h2>Get in touch</h2>
+    <p>For any buying, selling, or appraisal enquiries, write to us and we will get back to you.</p>
+    <a class="email" href="mailto:reubenbance@gmail.com">Send an email</a>
+    <p class="note">We can also value bows and can arrange rehairs and repairs for bows being purchased or appraised.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>St Bride's English bow specialists | A Resona Consulting brand</div>
+    <div>Enquiries: <a href="mailto:reubenbance@gmail.com">reubenbance@gmail.com</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
