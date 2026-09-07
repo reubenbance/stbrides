@@ -309,6 +309,42 @@
     outline-offset: 3px;
   }
 
+  /* ---------- SERVICES ---------- */
+  .services{
+    padding: 8px 0 72px;
+    scroll-margin-top: 72px;
+  }
+  .services h2{
+    font-family: 'Source Serif 4', serif;
+    font-weight: 500;
+    font-size: 1.3rem;
+    padding-bottom: 28px;
+  }
+  .services ul{
+    list-style: none;
+    border-top: 1px solid var(--line);
+  }
+  .services li{
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 24px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .services li strong{
+    font-family: 'Source Serif 4', serif;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  .services li p{
+    font-size: 0.9rem;
+    color: var(--dim);
+    max-width: 46ch;
+  }
+  @media (max-width: 620px){
+    .services li{ grid-template-columns: 1fr; gap: 6px; }
+  }
+
   /* ---------- CONTACT ---------- */
   .contact{
     padding: 64px 0 64px;
@@ -382,6 +418,7 @@
     <nav>
       <a href="#about">About</a>
       <a href="#listings">Listings</a>
+      <a href="#services">Services</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -495,6 +532,36 @@
       </div>
     </article>
 
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="services" id="services">
+  <div class="wrap">
+    <h2>Services</h2>
+    <ul>
+      <li>
+        <strong>Appraisal</strong>
+        <p>Written valuations for insurance, probate, or sale, covering maker attribution, condition and current market value.</p>
+      </li>
+      <li>
+        <strong>Buying &amp; selling</strong>
+        <p>We buy bows outright or sell on your behalf, and are always looking to acquire fine examples of English, French and German making.</p>
+      </li>
+      <li>
+        <strong>Rehairing</strong>
+        <p>Rehairs carried out by a trusted partner to a high standard, turned around promptly.</p>
+      </li>
+      <li>
+        <strong>Appoitnments</strong>
+        <p>We can come to you, anywhere in London or Cambridge, for appraisals, trials, or just to have a chat about a bow.</p>
+      </li>
+      <li>
+        <strong>Trials</strong>
+        <p>Book a session to try bows in person before committing to a purchase.</p>
+      </li>
+    </ul>
   </div>
 </section>
 
