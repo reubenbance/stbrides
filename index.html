@@ -413,8 +413,14 @@
   .specs li span:first-child{ color: var(--dim); }
   .specs li span:last-child{ font-weight: 500; text-align: right; }
 
-  .cta{
+  .cta-row{
     margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .cta{
     display: inline-flex;
     align-items:center;
     justify-content:center;
@@ -428,6 +434,25 @@
   }
   .cta:hover{ opacity: 0.8; }
   .cta:focus-visible{
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
+  }
+
+  .cta-buy{
+    display: inline-flex;
+    align-items:center;
+    justify-content:center;
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--ink);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.86rem;
+    padding: 10px 20px;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .cta-buy:hover{ background: var(--ink); color: #fff; }
+  .cta-buy:focus-visible{
     outline: 2px solid var(--ink);
     outline-offset: 3px;
   }
@@ -525,7 +550,7 @@
   footer a{ text-decoration: underline; }
 
   @media (prefers-reduced-motion: reduce){
-    .cta{ transition: none; }
+    .cta, .cta-buy{ transition: none; }
     html{ scroll-behavior: auto; }
   }
 </style>
@@ -603,9 +628,15 @@
           <li><span>Condition</span><span>Excellent</span></li>
           <li><span>Case</span><span>Not included</span></li>
         </ul>
-        <a class="cta" href="mailto:reubenbance@gmail.com?subject=Enquiry — Lot 01, Violin bow">
-          Enquire about this bow
-        </a>
+        <div class="cta-row">
+          <a class="cta" href="mailto:reubenbance@gmail.com?subject=Enquiry — Lot 01, Violin bow">
+            Enquire about this bow
+          </a>
+          <!-- Replace with this lot's Stripe Payment Link (Stripe Dashboard → Payment links → Create) -->
+          <a class="cta-buy" href="https://buy.stripe.com/dRmfZa6yMdJV9A64DQfjG02">
+            Buy now
+          </a>
+        </div>
       </div>
     </article>
 
@@ -629,9 +660,15 @@
           <li><span>Condition</span><span>Minor cosmetic wear due to age, no warps or cracks.</span></li>
           <li><span>Case</span><span>Not included</span></li>
         </ul>
-        <a class="cta" href="mailto:reubenbance@gmail.com?subject=Enquiry — Lot 02, Viola bow">
-          Enquire about this bow
-        </a>
+        <div class="cta-row">
+          <a class="cta" href="mailto:reubenbance@gmail.com?subject=Enquiry — Lot 02, Viola bow">
+            Enquire about this bow
+          </a>
+          <!-- Replace with this lot's Stripe Payment Link -->
+          <a class="cta-buy" href="https://buy.stripe.com/REPLACE_LOT_02">
+            Buy now
+          </a>
+        </div>
       </div>
     </article>
 
@@ -655,9 +692,12 @@
           <li><span>Condition</span><span>Good, minor wear to lapping</span></li>
           <li><span>Case</span><span>Not included</span></li>
         </ul>
-        <a class="cta" href="mailto:reubenbance@gmail.com?subject=Enquiry — Lot 03, Cello bow">
-          Enquire about this bow
-        </a>
+        <div class="cta-row">
+          <a class="cta" href="mailto:reubenbance@gmail.com?subject=Enquiry — Lot 03, Cello bow">
+            Enquire about this bow
+          </a>
+          <!-- Lot 03 is no longer available — Buy now button intentionally omitted -->
+        </div>
       </div>
     </article>
 
