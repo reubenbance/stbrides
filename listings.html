@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Listings | St Bride's Bows</title>
+<link rel="icon" type="image/png" href="holding.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.page-head{text-align:center;padding:72px 24px 56px}
+.page-head h1{font-family:'Source Serif 4',serif;font-weight:500;font-size:clamp(2rem,5vw,2.8rem)}
+.page-head p{margin:14px auto 0;color:var(--dim);font-size:.95rem;max-width:46ch}
+
+.feature{border-top:1px solid var(--line);padding:72px 0;scroll-margin-top:58px}
+.feature:nth-of-type(even){background:var(--surface)}
+.f-wrap{max-width:1040px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:56px;align-items:start}
+@media(max-width:820px){.f-wrap{grid-template-columns:1fr;gap:32px}.feature{padding:48px 0}}
+
+/* gallery */
+.gallery{position:sticky;top:82px}
+@media(max-width:820px){.gallery{position:static}}
+.stage{position:relative;aspect-ratio:4/5;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.stage.has-img{cursor:zoom-in}
+.stage img{width:100%;height:100%;object-fit:cover;display:block}
+.stage .empty{font-size:.85rem;color:var(--dim);padding:24px;text-align:center}
+.thumbs{display:flex;gap:10px;margin-top:10px}
+.thumbs button{width:72px;aspect-ratio:1;border:1px solid var(--line);padding:0;background:#fff;cursor:pointer;opacity:.55;overflow:hidden}
+.thumbs button img{width:100%;height:100%;object-fit:cover;display:block}
+.thumbs button[aria-current="true"]{opacity:1;border-color:var(--ink)}
+.thumbs button:focus-visible,.stage:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.is-sold .stage img,.is-sold .thumbs{filter:grayscale(1)}
+
+/* details */
+.status{display:inline-block;font-size:.8rem;border:1px solid var(--ink);padding:3px 12px;margin-bottom:18px}
+.status.off{border-color:var(--dim);color:var(--dim)}
+.f-info h2{font-family:'Source Serif 4',serif;font-weight:500;font-size:clamp(1.5rem,3.4vw,2rem);line-height:1.2}
+.attribution{font-family:'Source Serif 4',serif;font-style:italic;font-size:1rem;color:var(--dim);margin-top:8px}
+.price{font-family:'Source Serif 4',serif;font-size:2rem;margin-top:24px}
+.price.off{font-size:1.1rem;color:var(--dim)}
+.desc{font-size:.95rem;color:#3a3a37;margin-top:18px;max-width:50ch}
+.specs{list-style:none;margin-top:26px;border-top:1px solid var(--line)}
+.specs li{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.86rem}
+.specs li span:first-child{color:var(--dim)}
+.specs li span:last-child{font-weight:500;text-align:right}
+.cta-row{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px}
+.back{text-align:center;padding:56px 24px 72px;border-top:1px solid var(--line);font-size:.9rem;color:var(--dim)}
+.back p{margin-bottom:18px}
+
+/* lightbox */
+.lightbox{position:fixed;inset:0;z-index:200;background:rgba(10,10,10,.92);display:none;align-items:center;justify-content:center}
+.lightbox.open{display:flex}
+.lightbox img{max-width:88vw;max-height:82vh;object-fit:contain}
+.lightbox button{position:absolute;background:none;border:none;color:#fff;cursor:pointer;line-height:1;padding:10px 16px}
+.lb-close{top:14px;right:18px;font-size:1.8rem}
+.lb-prev,.lb-next{top:50%;transform:translateY(-50%);font-size:2rem}
+.lb-prev{left:4px}.lb-next{right:4px}
+.lb-count{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.75);font-size:.78rem}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="holding.png" alt="St Bride's logo"><span>St Bride's</span></a>
+    <nav>
+      <a href="index.html#about">About</a>
+      <a href="listings.html" aria-current="page">Listings</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-head">
+  <h1>Spotlighted listings</h1>
+  <p>A small, carefully chosen selection. Get in touch for more options or to book a trial session.</p>
+</div>
+
+<!-- LISTING 1: DODD -->
+<section class="feature" id="dodd">
+  <div class="f-wrap">
+    <div class="gallery" data-alt="Early 20th-century pernambuco violin bow, stamped DODD"
+         data-photos="">
+      <!-- To add photos: put files in /images and list them in data-photos,
+           comma-separated, e.g. data-photos="images/dodd-full.jpg,images/dodd-frog.jpg,images/dodd-tip.jpg" -->
+    </div>
+    <div class="f-info">
+      <span class="status">Available</span>
+      <h2>Early 20th-century pernambuco violin bow, stamped DODD</h2>
+      <div class="attribution">German, likely Markneukirchen region, c.1900</div>
+      <div class="price">£600</div>
+      <p class="desc">A strong stick from a good German workshop. Rehaired in September 2026 with a new faceplate and nickel-silver lapping.</p>
+      <ul class="specs">
+        <li><span>Wood</span><span>Pernambuco</span></li>
+        <li><span>Weight</span><span>60g</span></li>
+        <li><span>Mounts</span><span>Nickel</span></li>
+        <li><span>Condition</span><span>Minor cosmetic wear due to age, no warps or cracks</span></li>
+        <li><span>Case</span><span>Not included</span></li>
+      </ul>
+      <div class="cta-row">
+        <a class="cta" href="mailto:reubenbance@gmail.com?subject=Enquiry — Violin bow stamped DODD">Enquire about this bow</a>
+        <!-- Replace with this bow's Stripe Payment Link -->
+        <a class="cta-buy" href="https://buy.stripe.com/REPLACE_LOT_02">Buy now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LISTING 2: PENZEL -->
+<section class="feature is-sold" id="penzel">
+  <div class="f-wrap">
+    <div class="gallery" data-alt="Fine pernambuco violin bow by Penzel"
+         data-photos="images/lot01-frog.jpg,images/lot01-tip.jpg"></div>
+    <div class="f-info">
+      <span class="status off">Not currently available</span>
+      <h2>Fine silver-mounted pernambuco violin bow by K. Gerhard Penzel</h2>
+      <div class="attribution">German, Gerhard Kurt Penzel, c.1960</div>
+      <div class="price off">Not currently available for sale</div>
+      <p class="desc">Gerhard Kurt Penzel is a member of the Penzel bow-making dynasty, son of Kurt Walter Penzel. This bow is stamped 'EXQUISIT', a hallmark of Penzel's highest-quality bows. The silver-mounted ebony frog is inlaid with Parisian eyes, with a three-part silver adjuster with pearl facets. The side of the frog is stamped with the Penzel coat of arms.</p>
+      <ul class="specs">
+        <li><span>Wood</span><span>Pernambuco</span></li>
+        <li><span>Weight</span><span>62g</span></li>
+        <li><span>Mounts</span><span>Silver</span></li>
+        <li><span>Condition</span><span>Excellent</span></li>
+        <li><span>Case</span><span>Not included</span></li>
+      </ul>
+      <div class="cta-row">
+        <a class="cta" href="mailto:reubenbance@gmail.com?subject=Enquiry — Violin bow by G. K. Penzel">Ask about similar bows</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="back">
+  <p>Looking for something specific? We can source bows to order.</p>
+  <a class="cta-buy" href="index.html#contact">Get in touch</a>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div>St Bride's | c/o Mr R Bance of 2b Hicks St., London, SE8 5AQ | a Resona Consulting brand</div>
+    <div>Please direct enquiries to <a href="mailto:reubenbance@gmail.com">R Bance</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var lb=document.createElement('div');
+  lb.className='lightbox';
+  lb.innerHTML='<button class="lb-close" aria-label="Close">&times;</button><button class="lb-prev" aria-label="Previous photo">&#10094;</button><img alt=""><button class="lb-next" aria-label="Next photo">&#10095;</button><div class="lb-count"></div>';
+  document.body.appendChild(lb);
+  var lbImg=lb.querySelector('img'),lbCount=lb.querySelector('.lb-count'),L=[],li=0,la='';
+  function show(){
+    lbImg.src=L[li];lbImg.alt=la;
+    lbCount.textContent=L.length>1?(li+1)+' / '+L.length:'';
+    lb.querySelector('.lb-prev').style.display=lb.querySelector('.lb-next').style.display=L.length>1?'':'none';
+  }
+  function step(d){li=(li+d+L.length)%L.length;show();}
+  function close(){lb.classList.remove('open');}
+  lb.querySelector('.lb-close').onclick=close;
+  lb.querySelector('.lb-prev').onclick=function(){step(-1)};
+  lb.querySelector('.lb-next').onclick=function(){step(1)};
+  lb.addEventListener('click',function(e){if(e.target===lb)close();});
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('open'))return;
+    if(e.key==='Escape')close();
+    if(e.key==='ArrowLeft')step(-1);
+    if(e.key==='ArrowRight')step(1);
+  });
+  var tx=null;
+  lb.addEventListener('touchstart',function(e){tx=e.changedTouches[0].clientX;});
+  lb.addEventListener('touchend',function(e){
+    if(tx===null)return;
+    var dx=e.changedTouches[0].clientX-tx;
+    if(Math.abs(dx)>40)step(dx>0?-1:1);
+    tx=null;
+  });
+
+  document.querySelectorAll('.gallery').forEach(function(g){
+    var photos=(g.getAttribute('data-photos')||'').split(',').map(function(s){return s.trim();}).filter(Boolean);
+    var alt=g.getAttribute('data-alt')||'';
+    var stage=document.createElement('div');
+    stage.className='stage';
+    g.appendChild(stage);
+    if(!photos.length){
+      stage.innerHTML='<span class="empty">Photographs to follow</span>';
+      return;
+    }
+    var idx=0,img=document.createElement('img');
+    img.alt=alt;img.src=photos[0];
+    stage.classList.add('has-img');
+    stage.tabIndex=0;
+    stage.setAttribute('role','button');
+    stage.setAttribute('aria-label','Enlarge photo');
+    stage.appendChild(img);
+    function open(){L=photos;li=idx;la=alt;show();lb.classList.add('open');}
+    stage.addEventListener('click',open);
+    stage.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});
+    if(photos.length>1){
+      var row=document.createElement('div');
+      row.className='thumbs';
+      photos.forEach(function(p,i){
+        var b=document.createElement('button');
+        b.type='button';
+        b.setAttribute('aria-label','Show photo '+(i+1));
+        b.innerHTML='<img alt="" src="'+p+'">';
+        b.addEventListener('click',function(){
+          idx=i;img.src=p;
+          row.querySelectorAll('button').forEach(function(x,j){x.setAttribute('aria-current',j===i?'true':'false');});
+        });
+        row.appendChild(b);
+      });
+      row.firstChild.setAttribute('aria-current','true');
+      g.appendChild(row);
+    }
+  });
+})();
+</script>
+</body>
+</html>
