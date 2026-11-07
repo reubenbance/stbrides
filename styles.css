@@ -1,172 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Listings | St Bride's</title>
-<meta name="description" content="Spotlighted violin bows from St Bride's: each assessed for maker, condition and playing quality.">
-<link rel="icon" type="image/png" href="holding.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
+:root{--ink:#1a1816;--paper:#fff;--surface:#f3f3f1;--line:#dcdad5;--dim:#66635d;--accent:#6e2b1c;--serif:'Source Serif 4',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{max-width:100%;overflow-x:hidden}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;padding-top:64px}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.01em;line-height:1.15}
+.section{padding:96px 0;scroll-margin-top:64px}
+.section.tint{background:var(--surface)}
+.lede{font-family:var(--serif);font-size:1.15rem;line-height:1.75;color:#2b2926;max-width:58ch}
 
-<header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="index.html"><img src="holding.png" alt="St Bride's logo"><span>St Bride's</span></a>
-    <nav>
-      <a href="index.html#about">About</a>
-      <a href="listings.html" aria-current="page">Listings</a>
-      <a href="index.html#services">Services</a>
-      <a href="index.html#contact">Contact</a>
-    </nav>
-  </div>
-</header>
+/* header */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:30px;height:30px;object-fit:contain}
+.brand span{font-family:var(--serif);font-size:1.2rem;letter-spacing:-.01em}
+.site-header nav{display:flex;align-items:center;gap:32px}
+.site-header nav a{font-size:.88rem;text-decoration:none;color:var(--dim);transition:color .15s}
+.site-header nav a:hover,.site-header nav a[aria-current]{color:var(--ink)}
+.site-header nav a[aria-current]{border-bottom:1px solid var(--accent);padding-bottom:2px}
+@media(max-width:560px){.brand span{display:none}.site-header nav{gap:18px}.site-header nav a{font-size:.8rem}}
 
-<div class="page-head">
-  <h1>Spotlighted listings</h1>
-  <p>A small, carefully chosen selection. Get in touch for more options or to book a trial session.</p>
-</div>
+/* buttons */
+.cta,.cta-buy,.cta-light{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-weight:500;font-size:.9rem;padding:14px 28px;border:1px solid var(--ink);transition:background .15s,color .15s,border-color .15s}
+.cta{background:var(--ink);color:#fff}
+.cta:hover{background:var(--accent);border-color:var(--accent)}
+.cta-buy{background:transparent;color:var(--ink)}
+.cta-buy:hover{background:var(--ink);color:#fff}
+.cta-light{background:#fff;color:var(--ink);border-color:#fff}
+.cta-light:hover{background:transparent;color:#fff}
+.cta-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.7)}
+.cta-ghost:hover{background:#fff;color:var(--ink)}
 
-<!-- LISTING 1: DODD -->
-<section class="feature" id="dodd">
-  <div class="f-wrap">
-    <div class="gallery" data-alt="Early 20th-century pernambuco violin bow, stamped DODD"
-         data-photos="images/1000059655.jpg,images/1000059660.jpg">
-    </div>
-    <div class="f-info">
-      <span class="status">Available</span>
-      <h2>Early 20th-century pernambuco violin bow, stamped DODD</h2>
-      <div class="attribution">German, likely Markneukirchen region, c.1900</div>
-      <div class="price">£600</div>
-      <p class="desc">A strong stick from a good German workshop. Rehaired in September 2026 with a new faceplate and nickel-silver lapping.</p>
-      <ul class="specs">
-        <li><span>Wood</span><span>Pernambuco</span></li>
-        <li><span>Weight</span><span>60g</span></li>
-        <li><span>Mounts</span><span>Nickel</span></li>
-        <li><span>Condition</span><span>Minor cosmetic wear due to age, no warps or cracks</span></li>
-        <li><span>Case</span><span>Not included</span></li>
-      </ul>
-      <div class="cta-row">
-        <a class="cta" href="mailto:reubenbance@gmail.com?subject=Enquiry — Violin bow stamped DODD">Enquire about this bow</a>
-        <!-- Replace with this bow's Stripe Payment Link -->
-        <a class="cta-buy" href="https://buy.stripe.com/REPLACE_LOT_02">Buy now</a>
-      </div>
-    </div>
-  </div>
-</section>
+/* hero */
+.hero{position:relative;min-height:min(80vh,720px);display:flex;align-items:flex-end;color:#fff;background:#222}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(14,12,10,.88) 0%,rgba(14,12,10,.45) 55%,rgba(14,12,10,.2) 100%)}
+.hero .wrap{position:relative;z-index:1;width:100%;padding-bottom:72px;padding-top:120px}
+.hero h1{font-size:clamp(3.2rem,9vw,6.4rem);letter-spacing:-.03em;line-height:1}
+.hero .strapline{margin-top:22px;font-size:1.1rem;max-width:44ch;color:rgba(255,255,255,.88)}
+.hero .actions{margin-top:36px;display:flex;flex-wrap:wrap;gap:12px}
+.hero .where{margin-top:36px;font-family:var(--serif);font-style:italic;color:rgba(255,255,255,.7)}
 
-<!-- LISTING 2: PENZEL -->
-<section class="feature is-sold" id="penzel">
-  <div class="f-wrap">
-    <div class="gallery" data-alt="Fine pernambuco violin bow by Penzel"
-         data-photos="images/lot01-frog.jpg,images/lot01-tip.jpg"></div>
-    <div class="f-info">
-      <span class="status off">Not currently available</span>
-      <h2>Fine silver-mounted pernambuco violin bow by K. Gerhard Penzel</h2>
-      <div class="attribution">German, Gerhard Kurt Penzel, c.1960</div>
-      <div class="price off">Not currently available for sale</div>
-      <p class="desc">Gerhard Kurt Penzel is a member of the Penzel bow-making dynasty, son of Kurt Walter Penzel. This bow is stamped 'EXQUISIT', a hallmark of Penzel's highest-quality bows. The silver-mounted ebony frog is inlaid with Parisian eyes, with a three-part silver adjuster with pearl facets. The side of the frog is stamped with the Penzel coat of arms.</p>
-      <ul class="specs">
-        <li><span>Wood</span><span>Pernambuco</span></li>
-        <li><span>Weight</span><span>62g</span></li>
-        <li><span>Mounts</span><span>Silver</span></li>
-        <li><span>Condition</span><span>Excellent</span></li>
-        <li><span>Case</span><span>Not included</span></li>
-      </ul>
-      <div class="cta-row">
-        <a class="cta" href="mailto:reubenbance@gmail.com?subject=Enquiry — Violin bow by G. K. Penzel">Ask about similar bows</a>
-      </div>
-    </div>
-  </div>
-</section>
+/* assurance strip */
+.assure{border-bottom:1px solid var(--line)}
+.assure ul{list-style:none;display:grid;grid-template-columns:repeat(3,1fr)}
+.assure li{padding:30px 28px;border-left:1px solid var(--line)}
+.assure li:first-child{border-left:none;padding-left:0}
+.assure strong{display:block;font-family:var(--serif);font-weight:500;font-size:1.05rem}
+.assure span{display:block;margin-top:4px;font-size:.86rem;color:var(--dim)}
+@media(max-width:760px){.assure ul{grid-template-columns:1fr}.assure li{border-left:none;border-top:1px solid var(--line);padding:20px 0}.assure li:first-child{border-top:none}}
 
-<div class="back">
-  <p>Looking for something specific? We can source bows to order.</p>
-  <a class="cta-buy" href="index.html#contact">Get in touch</a>
-</div>
+/* two-column section layout */
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:64px;align-items:start}
+.split>h2{font-size:clamp(1.7rem,3.4vw,2.3rem)}
+@media(max-width:820px){.split{grid-template-columns:1fr;gap:28px}.section{padding:64px 0}}
+.about .lede+.lede{margin-top:22px}
 
-<footer>
-  <div class="wrap">
-    <div>St Bride's | c/o Mr R Bance of 2b Hicks St., London, SE8 5AQ | a Resona Consulting brand</div>
-    <div>Please direct enquiries to <a href="mailto:reubenbance@gmail.com">R Bance</a></div>
-  </div>
-</footer>
+/* featured (home) */
+.featured{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:56px;align-items:center}
+.featured img{width:100%;aspect-ratio:4/5;object-fit:cover;border:1px solid var(--line);background:#fff;display:block}
+.featured h3{font-size:clamp(1.5rem,3vw,2rem)}
+.featured .attribution{margin-top:8px}
+.featured .price{margin-top:20px}
+.featured .cta-row{margin-top:28px}
+.section-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:12px;margin-bottom:40px}
+.section-head h2{font-size:clamp(1.7rem,3.4vw,2.3rem)}
+.section-head a{font-size:.9rem;color:var(--dim)}
+@media(max-width:820px){.featured{grid-template-columns:1fr;gap:28px}}
 
-<script>
-(function(){
-  var lb=document.createElement('div');
-  lb.className='lightbox';
-  lb.innerHTML='<button class="lb-close" aria-label="Close">&times;</button><button class="lb-prev" aria-label="Previous photo">&#10094;</button><img alt=""><button class="lb-next" aria-label="Next photo">&#10095;</button><div class="lb-count"></div>';
-  document.body.appendChild(lb);
-  var lbImg=lb.querySelector('img'),lbCount=lb.querySelector('.lb-count'),L=[],li=0,la='';
-  function show(){
-    lbImg.src=L[li];lbImg.alt=la;
-    lbCount.textContent=L.length>1?(li+1)+' / '+L.length:'';
-    lb.querySelector('.lb-prev').style.display=lb.querySelector('.lb-next').style.display=L.length>1?'':'none';
-  }
-  function step(d){li=(li+d+L.length)%L.length;show();}
-  function close(){lb.classList.remove('open');}
-  lb.querySelector('.lb-close').onclick=close;
-  lb.querySelector('.lb-prev').onclick=function(){step(-1)};
-  lb.querySelector('.lb-next').onclick=function(){step(1)};
-  lb.addEventListener('click',function(e){if(e.target===lb)close();});
-  document.addEventListener('keydown',function(e){
-    if(!lb.classList.contains('open'))return;
-    if(e.key==='Escape')close();
-    if(e.key==='ArrowLeft')step(-1);
-    if(e.key==='ArrowRight')step(1);
-  });
-  var tx=null;
-  lb.addEventListener('touchstart',function(e){tx=e.changedTouches[0].clientX;});
-  lb.addEventListener('touchend',function(e){
-    if(tx===null)return;
-    var dx=e.changedTouches[0].clientX-tx;
-    if(Math.abs(dx)>40)step(dx>0?-1:1);
-    tx=null;
-  });
+/* services */
+.services ul{list-style:none;border-top:1px solid var(--line)}
+.services li{display:grid;grid-template-columns:200px 1fr;gap:28px;padding:26px 0;border-bottom:1px solid var(--line)}
+.services li strong{font-family:var(--serif);font-weight:500;font-size:1.1rem}
+.services li p{font-size:.95rem;color:#47443f;max-width:58ch}
+@media(max-width:620px){.services li{grid-template-columns:1fr;gap:6px}}
 
-  document.querySelectorAll('.gallery').forEach(function(g){
-    var photos=(g.getAttribute('data-photos')||'').split(',').map(function(s){return s.trim();}).filter(Boolean);
-    var alt=g.getAttribute('data-alt')||'';
-    var stage=document.createElement('div');
-    stage.className='stage';
-    g.appendChild(stage);
-    if(!photos.length){
-      stage.innerHTML='<span class="empty">Photographs to follow</span>';
-      return;
-    }
-    var idx=0,img=document.createElement('img');
-    img.alt=alt;img.src=photos[0];
-    stage.classList.add('has-img');
-    stage.tabIndex=0;
-    stage.setAttribute('role','button');
-    stage.setAttribute('aria-label','Enlarge photo');
-    stage.appendChild(img);
-    function open(){L=photos;li=idx;la=alt;show();lb.classList.add('open');}
-    stage.addEventListener('click',open);
-    stage.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});
-    if(photos.length>1){
-      var row=document.createElement('div');
-      row.className='thumbs';
-      photos.forEach(function(p,i){
-        var b=document.createElement('button');
-        b.type='button';
-        b.setAttribute('aria-label','Show photo '+(i+1));
-        b.innerHTML='<img alt="" src="'+p+'">';
-        b.addEventListener('click',function(){
-          idx=i;img.src=p;
-          row.querySelectorAll('button').forEach(function(x,j){x.setAttribute('aria-current',j===i?'true':'false');});
-        });
-        row.appendChild(b);
-      });
-      row.firstChild.setAttribute('aria-current','true');
-      g.appendChild(row);
-    }
-  });
-})();
-</script>
-</body>
-</html>
+/* contact */
+.contact-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:64px;align-items:start}
+.contact h2{font-size:clamp(1.7rem,3.4vw,2.3rem)}
+.contact p{margin-top:16px;color:#47443f;max-width:42ch}
+.contact .cta{margin-top:28px}
+.contact h3{font-size:1.2rem;margin-bottom:6px}
+.ml-embed iframe{width:100%;height:419px;border:1px solid var(--line);background:#fff;margin-top:18px}
+@media(max-width:820px){.contact-grid{grid-template-columns:1fr;gap:40px}}
+@media(max-width:480px){.ml-embed iframe{height:520px}}
+
+/* footer */
+footer{background:var(--ink);color:rgba(255,255,255,.7);padding:44px 0;font-size:.82rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px 40px}
+footer a{color:#fff}
+
+/* listings page */
+.page-head{max-width:1120px;margin:0 auto;padding:80px 28px 56px}
+.page-head h1{font-size:clamp(2.3rem,6vw,3.6rem);letter-spacing:-.02em}
+.page-head p{margin-top:14px;color:var(--dim);max-width:52ch}
+.feature{border-top:1px solid var(--line);padding:80px 0;scroll-margin-top:64px}
+.feature:nth-of-type(even){background:var(--surface)}
+.f-wrap{max-width:1120px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:64px;align-items:start}
+@media(max-width:820px){.f-wrap{grid-template-columns:1fr;gap:32px}.feature{padding:48px 0}}
+.gallery{position:sticky;top:88px}
+@media(max-width:820px){.gallery{position:static}}
+.stage{position:relative;aspect-ratio:4/5;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.stage.has-img{cursor:zoom-in}
+.stage img{width:100%;height:100%;object-fit:cover;display:block}
+.stage .empty{font-size:.85rem;color:var(--dim);padding:24px;text-align:center}
+.thumbs{display:flex;gap:10px;margin-top:10px}
+.thumbs button{width:76px;aspect-ratio:1;border:1px solid var(--line);padding:0;background:#fff;cursor:pointer;opacity:.55;overflow:hidden;transition:opacity .15s}
+.thumbs button:hover{opacity:.85}
+.thumbs button img{width:100%;height:100%;object-fit:cover;display:block}
+.thumbs button[aria-current="true"]{opacity:1;border-color:var(--ink)}
+.is-sold .stage img,.is-sold .thumbs{filter:grayscale(1)}
+.status{display:inline-block;font-size:.8rem;font-weight:500;color:var(--accent);border:1px solid var(--accent);padding:3px 12px;margin-bottom:18px}
+.status.off{border-color:var(--dim);color:var(--dim)}
+.f-info h2,.featured h3{font-size:clamp(1.6rem,3.4vw,2.2rem)}
+.attribution{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--dim);margin-top:10px}
+.price{font-family:var(--serif);font-size:2.2rem;margin-top:24px}
+.price.off{font-size:1.1rem;color:var(--dim)}
+.desc{font-size:.97rem;color:#3a3835;margin-top:18px;max-width:52ch}
+.specs{list-style:none;margin-top:28px;border-top:1px solid var(--line)}
+.specs li{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--line);font-size:.88rem}
+.specs li span:first-child{color:var(--dim)}
+.specs li span:last-child{font-weight:500;text-align:right}
+.cta-row{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
+.back{text-align:center;padding:72px 28px;border-top:1px solid var(--line);color:var(--dim)}
+.back p{margin-bottom:20px;font-family:var(--serif);font-size:1.2rem;color:var(--ink)}
+
+/* lightbox */
+.lightbox{position:fixed;inset:0;z-index:200;background:rgba(10,10,10,.94);display:none;align-items:center;justify-content:center}
+.lightbox.open{display:flex}
+.lightbox img{max-width:88vw;max-height:82vh;object-fit:contain}
+.lightbox button{position:absolute;background:none;border:none;color:#fff;cursor:pointer;line-height:1;padding:10px 16px}
+.lb-close{top:14px;right:18px;font-size:1.8rem}
+.lb-prev,.lb-next{top:50%;transform:translateY(-50%);font-size:2rem}
+.lb-prev{left:4px}.lb-next{right:4px}
+.lb-count{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.75);font-size:.78rem}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
